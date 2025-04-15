@@ -36,13 +36,24 @@ export class Loot
     {
         // Customs Marked Room Loot.
         let spawnPoints = this.tables.getTables().locations.bigmap.looseLoot.spawnpoints;
-        let customsMarked1: ISpawnpoint;
-        let customsMarked2: ISpawnpoint;
-        let customsMarked3: ISpawnpoint;
-        let customsMarked4: ISpawnpoint;
-        let customsMarked5: ISpawnpoint;
-        let customsMarked6: ISpawnpoint;
-        let customsMarked7: ISpawnpoint;
+        let customsMarked1: ISpawnpoint = null;
+        let customsMarked8: ISpawnpoint = null;
+        let customsMarked9: ISpawnpoint = null;
+        let customsMarked10: ISpawnpoint = null;
+        let customsMarked11: ISpawnpoint = null;
+        let customsMarked12: ISpawnpoint = null;
+
+        //* Customs Marked Room Loot.
+        // Loot 135 (1) is electronics, and other small items like GPU, Motor, etc.
+        // Loot 135 (2) is $, Euro, Roubles
+        // Loot 135 (4) is GP Coin, Roubles, $
+        // Loot 135 (7) is Euro, Roubles, GP Coin
+        // Loot 135 (8) is containers (ammo, dogtag, docs, key tool, injector case, keycard holder)
+        // Loot 135 (9) is weapons and ammunition case
+        // Loot 135 (10) is containers
+        // Loot 135 (11) is containers
+        // Loot 135 (12) is containers */
+        
 
         // For loop through the Spawnpoints
         for (const spawnPoint of spawnPoints)
@@ -54,46 +65,42 @@ export class Loot
                 customsMarked1.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
-            if (spawnPoint.template.Id.startsWith("Loot 135 (2)"))
-            {
-                customsMarked2 = spawnPoint;
-                customsMarked2.template.Items.push(...this.itemId());
-                customsMarked2.itemDistribution.push(...this.itemDistribution());
-                continue;
-            }
-            if (spawnPoint.template.Id.startsWith("Loot 135 (4)"))
-            {
-                customsMarked3 = spawnPoint;
-                customsMarked3.template.Items.push(...this.itemId());
-                customsMarked3.itemDistribution.push(...this.itemDistribution());
-                continue;
-            }
-            if (spawnPoint.template.Id.startsWith("Loot 135 (7)"))
-            {
-                customsMarked4 = spawnPoint;
-                customsMarked4.template.Items.push(...this.itemId());
-                customsMarked4.itemDistribution.push(...this.itemDistribution());
-                continue;
-            }
             if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
             {
-                customsMarked5 = spawnPoint;
-                customsMarked5.template.Items.push(...this.itemId());
-                customsMarked5.itemDistribution.push(...this.itemDistribution());
+                customsMarked8 = spawnPoint;
+                customsMarked8.template.Items.push(...this.itemId());
+                customsMarked8.itemDistribution.push(...this.itemDistribution());
+                customsMarked8.itemDistribution.push(...this.fixCustomsProbability());
                 continue;
             }
             if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
             {
-                customsMarked6 = spawnPoint;
-                customsMarked6.template.Items.push(...this.itemId());
-                customsMarked6.itemDistribution.push(...this.itemDistribution());
+                customsMarked9 = spawnPoint;
+                customsMarked9.template.Items.push(...this.itemId());
+                customsMarked9.itemDistribution.push(...this.itemDistribution());
+                customsMarked9.itemDistribution.push(...this.fixCustomsProbability());
                 continue;
             }
             if (spawnPoint.template.Id.startsWith("Loot 135 10)"))
             {
-                customsMarked7 = spawnPoint;
-                customsMarked7.template.Items.push(...this.itemId());
-                customsMarked7.itemDistribution.push(...this.itemDistribution());
+                customsMarked10 = spawnPoint;
+                customsMarked10.template.Items.push(...this.itemId());
+                customsMarked10.itemDistribution.push(...this.itemDistribution());
+                customsMarked10.itemDistribution.push(...this.fixCustomsProbability());
+                continue;
+            } if (spawnPoint.template.Id.startsWith("Loot 135 11)"))
+            {
+                customsMarked11 = spawnPoint;
+                customsMarked11.template.Items.push(...this.itemId());
+                customsMarked11.itemDistribution.push(...this.itemDistribution());
+                customsMarked11.itemDistribution.push(...this.fixCustomsProbability());
+                continue;
+            } if (spawnPoint.template.Id.startsWith("Loot 135 12)"))
+            {
+                customsMarked12 = spawnPoint;
+                customsMarked12.template.Items.push(...this.itemId());
+                customsMarked12.itemDistribution.push(...this.itemDistribution());
+                customsMarked12.itemDistribution.push(...this.fixCustomsProbability());
                 continue;
             }
         }    
@@ -101,18 +108,18 @@ export class Loot
                 
         // Reserve Marked Room Loot.
         spawnPoints = this.tables.getTables().locations.rezervbase.looseLoot.spawnpoints;
-        let reserveMarked1: ISpawnpoint;
-        let reserveMarked2: ISpawnpoint;
-        let reserveMarked3: ISpawnpoint;
-        let reserveMarked4: ISpawnpoint;
-        let reserveMarked5: ISpawnpoint;
-        let reserveMarked6: ISpawnpoint;
-        let reserveMarked7: ISpawnpoint;
-        let reserveMarked8: ISpawnpoint;
-        let reserveMarked9: ISpawnpoint;
-        let reserveMarked10: ISpawnpoint;
-        let reserveMarked11: ISpawnpoint;
-        let reserveMarked12: ISpawnpoint;
+        let reserveMarked1: ISpawnpoint = null;
+        let reserveMarked2: ISpawnpoint = null;
+        let reserveMarked3: ISpawnpoint = null;
+        let reserveMarked4: ISpawnpoint = null;
+        let reserveMarked5: ISpawnpoint = null;
+        let reserveMarked6: ISpawnpoint = null;
+        let reserveMarked7: ISpawnpoint = null;
+        let reserveMarked8: ISpawnpoint = null;
+        let reserveMarked9: ISpawnpoint = null;
+        let reserveMarked10: ISpawnpoint = null;
+        let reserveMarked11: ISpawnpoint = null;
+        let reserveMarked12: ISpawnpoint = null;
         
         // For loop through the Spawnpoints
         for (const spawnPoint of spawnPoints)
@@ -206,22 +213,22 @@ export class Loot
 
         // Streets Marked Room Loot.
         spawnPoints = this.tables.getTables().locations.tarkovstreets.looseLoot.spawnpoints;
-        let streets: ISpawnpoint;
-        let streets1: ISpawnpoint;
-        let streets2: ISpawnpoint;
-        let streets3: ISpawnpoint;
-        let streets4: ISpawnpoint;
-        let streets5: ISpawnpoint;
-        let streets6: ISpawnpoint;
-        let streets7: ISpawnpoint;
-        let streets8: ISpawnpoint;
-        let streets9: ISpawnpoint;
-        let streets10: ISpawnpoint;
-        let streets11: ISpawnpoint;
-        let streets12: ISpawnpoint;
-        let streets13: ISpawnpoint;
-        let streets14: ISpawnpoint;
-        let streets15: ISpawnpoint;
+        let streets: ISpawnpoint = null;
+        let streets1: ISpawnpoint = null;
+        let streets2: ISpawnpoint = null;
+        let streets3: ISpawnpoint = null;
+        let streets4: ISpawnpoint = null;
+        let streets5: ISpawnpoint = null;
+        let streets6: ISpawnpoint = null;
+        let streets7: ISpawnpoint = null;
+        let streets8: ISpawnpoint = null;
+        let streets9: ISpawnpoint = null;
+        let streets10: ISpawnpoint = null;
+        let streets11: ISpawnpoint = null;
+        let streets12: ISpawnpoint = null;
+        let streets13: ISpawnpoint = null;
+        let streets14: ISpawnpoint = null;
+        let streets15: ISpawnpoint = null;
 
         // For loop through the Spawnpoints
         for (const spawnPoint of spawnPoints)
@@ -367,7 +374,7 @@ export class Loot
 
     
     private itemDistribution(): ItemDistribution[]
-    {       
+    {
         const relativeProbability = this.modConfig.containersInMarkedRoom.RelativeProbability;
         const itemDistribution: ItemDistribution[] = [];
         itemDistribution.push({ "composedKey": { "key": "1337774434331278" }, "relativeProbability": relativeProbability.SICCpouch });
@@ -387,6 +394,21 @@ export class Loot
         itemDistribution.push({ "composedKey": { "key": "1337774485952621" }, "relativeProbability": relativeProbability.SecureEpsilon });
         itemDistribution.push({ "composedKey": { "key": "1337774018671223" }, "relativeProbability": relativeProbability.SecureKappa });
 
+        return itemDistribution;
+    }
+
+    private fixCustomsProbability(): ItemDistribution[]
+    {
+        const relativeProbability = this.modConfig.containersInMarkedRoom.RelativeProbability;
+        const itemDistribution: ItemDistribution[] = [];
+
+        itemDistribution.push({ "composedKey": { "key": "412439036" }, "relativeProbability": relativeProbability.AmmoCase });
+        itemDistribution.push({ "composedKey": { "key": "124471609" }, "relativeProbability": relativeProbability.DocsCase });
+        itemDistribution.push({ "composedKey": { "key": "1036505762" }, "relativeProbability": relativeProbability.DogtagsCase });
+        itemDistribution.push({ "composedKey": { "key": "344660402" }, "relativeProbability": relativeProbability.InjectorCase });
+        itemDistribution.push({ "composedKey": { "key": "1714132912" }, "relativeProbability": relativeProbability.Keytool });
+        itemDistribution.push({ "composedKey": { "key": "1251084789" }, "relativeProbability": relativeProbability.KeycardHolder });
+        
         return itemDistribution;
     }
     

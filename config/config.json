@@ -3,22 +3,28 @@
     { 
         "RelativeProbability":
         {
-            "SICCpouch": 7,
-            "MagazineCase": 16,
-            "WeaponCase": 12,
-            "THICCWeaponCase": 6,
-            "ItemCase": 12,
-            "THICCItemCase": 5,
-            "MoneyCase": 15,
-            "MrHolodilnick": 18,
-            "MedicineCase": 20,
-            "Junkbox": 15,
-            "GrenadeCase": 15,
-            "SecureGamma": 2,
-            "SecureBeta": 3,
-            "SecureAlpha": 3,
-            "SecureEpsilon": 3,
-            "SecureKappa": 1
+            "SICCpouch": 10,
+            "MagazineCase": 33,
+            "WeaponCase": 35,
+            "THICCWeaponCase": 10,
+            "ItemCase": 33,
+            "THICCItemCase": 10,
+            "MoneyCase": 25,
+            "MrHolodilnick": 33,
+            "MedicineCase": 35,
+            "Junkbox": 20,
+            "GrenadeCase": 33,
+            "SecureGamma": 3,
+            "SecureBeta": 8,
+            "SecureAlpha": 10,
+            "SecureEpsilon": 5,
+            "SecureKappa": 1,
+            "AmmoCase": 32,
+            "DocsCase": 41,
+            "DogtagsCase": 37,
+            "InjectorCase": 39,
+            "Keytool": 33,
+            "KeycardHolder": 39
         }
     }
 }

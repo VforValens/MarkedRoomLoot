@@ -50,8 +50,8 @@ export class Loot
         // Loot 135 (7) is Euro, Roubles, GP Coin
         // Loot 135 (8) is containers (ammo, dogtag, docs, key tool, injector case, keycard holder)
         // Loot 135 (9) is weapons and ammunition case
-        // Loot 135 (10) is containers
-        // Loot 135 (11) is containers
+        // Loot 135 (10) is containers 
+        // Loot 135 (11) is containers 
         // Loot 135 (12) is containers 
         // */
         
@@ -72,7 +72,7 @@ export class Loot
                 customsMarked8 = spawnPoint;
                 customsMarked8.template.Items.push(...this.itemId());
                 customsMarked8.itemDistribution.push(...this.itemDistribution());
-                customsMarked8.itemDistribution.push(...this.fixCustomsProbability());
+                this.fixCustomsProbability(spawnPoint);
                 continue;
             }
 
@@ -81,7 +81,7 @@ export class Loot
                 customsMarked9 = spawnPoint;
                 customsMarked9.template.Items.push(...this.itemId());
                 customsMarked9.itemDistribution.push(...this.itemDistribution());
-                customsMarked9.itemDistribution.push(...this.fixCustomsProbability());
+                this.fixCustomsProbability(spawnPoint);
                 continue;
             }
 
@@ -90,7 +90,7 @@ export class Loot
                 customsMarked10 = spawnPoint;
                 customsMarked10.template.Items.push(...this.itemId());
                 customsMarked10.itemDistribution.push(...this.itemDistribution());
-                customsMarked10.itemDistribution.push(...this.fixCustomsProbability());
+                this.fixCustomsProbability(spawnPoint);
                 continue;
             } 
             
@@ -99,7 +99,7 @@ export class Loot
                 customsMarked11 = spawnPoint;
                 customsMarked11.template.Items.push(...this.itemId());
                 customsMarked11.itemDistribution.push(...this.itemDistribution());
-                customsMarked11.itemDistribution.push(...this.fixCustomsProbability());
+                this.fixCustomsProbability(spawnPoint);
                 continue;
             } 
             
@@ -108,7 +108,7 @@ export class Loot
                 customsMarked12 = spawnPoint;
                 customsMarked12.template.Items.push(...this.itemId());
                 customsMarked12.itemDistribution.push(...this.itemDistribution());
-                customsMarked12.itemDistribution.push(...this.fixCustomsProbability());
+                this.fixCustomsProbability(spawnPoint);
                 continue;
             }
         }    
@@ -467,19 +467,16 @@ export class Loot
         return itemDistribution;
     }
 
-    private fixCustomsProbability(): ItemDistribution[]
+    private fixCustomsProbability(spawnPoint: ISpawnpoint): void
     {
         const relativeProbability = this.modConfig.containersInMarkedRoom.RelativeProbability;
-        const itemDistribution: ItemDistribution[] = [];
 
-        itemDistribution.push({ "composedKey": { "key": "412439036" }, "relativeProbability": relativeProbability.AmmoCase });
-        itemDistribution.push({ "composedKey": { "key": "124471609" }, "relativeProbability": relativeProbability.DocsCase });
-        itemDistribution.push({ "composedKey": { "key": "1036505762" }, "relativeProbability": relativeProbability.DogtagsCase });
-        itemDistribution.push({ "composedKey": { "key": "344660402" }, "relativeProbability": relativeProbability.InjectorCase });
-        itemDistribution.push({ "composedKey": { "key": "1714132912" }, "relativeProbability": relativeProbability.Keytool });
-        itemDistribution.push({ "composedKey": { "key": "1251084789" }, "relativeProbability": relativeProbability.KeycardHolder });
-        
-        return itemDistribution;
+        spawnPoint.itemDistribution.find(x => x.composedKey.key === "412439036").relativeProbability = relativeProbability.AmmoCase;
+        spawnPoint.itemDistribution.find(x => x.composedKey.key === "124471609").relativeProbability = relativeProbability.DocsCase;
+        spawnPoint.itemDistribution.find(x => x.composedKey.key === "1036505762").relativeProbability = relativeProbability.DogtagsCase;
+        spawnPoint.itemDistribution.find(x => x.composedKey.key === "344660402").relativeProbability = relativeProbability.InjectorCase;
+        spawnPoint.itemDistribution.find(x => x.composedKey.key === "1714132912").relativeProbability = relativeProbability.Keytool;
+        spawnPoint.itemDistribution.find(x => x.composedKey.key === "1251084789").relativeProbability = relativeProbability.KeycardHolder;
     }
     
 }

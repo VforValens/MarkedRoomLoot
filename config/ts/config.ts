@@ -26,4 +26,10 @@ export interface RelativeProbability
     SecureAlpha: number;
     SecureEpsilon: number;
     SecureKappa: number;
+    AmmoCase: number;
+    DocsCase: number;
+    DogtagsCase: number;
+    InjectorCase: number;
+    Keytool: number;
+    KeycardHolder: number;
 }

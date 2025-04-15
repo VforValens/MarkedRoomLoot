@@ -52,7 +52,8 @@ export class Loot
         // Loot 135 (9) is weapons and ammunition case
         // Loot 135 (10) is containers
         // Loot 135 (11) is containers
-        // Loot 135 (12) is containers */
+        // Loot 135 (12) is containers 
+        // */
         
 
         // For loop through the Spawnpoints
@@ -120,6 +121,21 @@ export class Loot
         let reserveMarked10: ISpawnpoint = null;
         let reserveMarked11: ISpawnpoint = null;
         let reserveMarked12: ISpawnpoint = null;
+
+        //* Reserve Marked Room Loot.
+        // Loot 135 (10)51646628 is 
+        // Loot 135 (8) is 
+        // Loot 135 (9) is 
+        // Cult Loot 135 (11) is
+        // Cult Loot 135 (12) is
+        // Loot 135 (10)51658080 is
+        // Loot 135 (11) is
+        // Loot 135 (12) is
+        // Loot 135 (1) is
+        // Loot 135 (2)51646104 is
+        // Loot 135 (2)51648120 is
+        // Loot 135 (3) is 
+        // */
         
         // For loop through the Spawnpoints
         for (const spawnPoint of spawnPoints)
@@ -229,6 +245,26 @@ export class Loot
         let streets13: ISpawnpoint = null;
         let streets14: ISpawnpoint = null;
         let streets15: ISpawnpoint = null;
+
+        //* Streets Marked Room Loot.
+        // Loot 135_Leo_Rare2741538 is 
+        // Loot 135_Leo_Rare (1) is 
+        // Loot 135_Leo_Rare (2) is
+        // Loot 135_Leo_Rare (3) is
+        // Loot 135_Leo_Rare (4) is
+        // Loot 135_Leo_Rare (5) is
+        // Loot 135_Leo_Rare (6) is
+        // Loot 135_Leo_Rare (7) is
+        // Loot 135_Leo_Rare (8) is
+        // Loot 135_Leo_Rare (9) is
+        // Loot 135_Leo_Rare (10) is
+        // Loot 135_Leo_Rare (11) is
+        // Loot 135_Leo_Rare (12) is
+        // Loot 135_Leo_Rare (13) is
+        // Loot 135_Leo_Rare (14) is
+        // Loot 135_Leo_Rare (15) is 
+        // */
+
 
         // For loop through the Spawnpoints
         for (const spawnPoint of spawnPoints)

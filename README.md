@@ -1,9 +1,9 @@
-# Welcome to the SPT Modding Project
+# Welcome to Make Marked Room Loot Good Again
 
 This project is designed to streamline the initial setup process for building and creating mods in the SPT environment. Follow this guide to set up your environment efficiently.
 
 ## **Table of Contents**
-- [NodeJS Setup](#nodejs-setup)
+- [SPT Hub](#spt-hub)
 - [IDE Setup](#ide-setup)
 - [Workspace Configuration](#workspace-configuration)
 - [Environment Setup](#environment-setup)
@@ -11,11 +11,9 @@ This project is designed to streamline the initial setup process for building an
 - [Coding Guidelines](#coding-guidelines)
 - [Distribution Guidelines](#distribution-guidelines)
 
-## **NodeJS Setup**
+## **SPT Hub**
 
-Before you begin, ensure to install NodeJS version `v20.11.1`, which has been tested thoroughly with our mod templates and build scripts. Download it from the [official NodeJS website](https://nodejs.org/).
-
-After installation, it's advised to reboot your system.
+Please see the mod on the official [SPT Hub](https://hub.sp-tarkov.com/files/file/2785-make-marked-room-loot-great-again/#overview)
 
 ## **IDE Setup**
 

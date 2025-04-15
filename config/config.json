@@ -1,0 +1,24 @@
+{
+    "containersInMarkedRoom":
+    { 
+        "RelativeProbability":
+        {
+            "SICCpouch": 7,
+            "MagazineCase": 16,
+            "WeaponCase": 12,
+            "THICCWeaponCase": 6,
+            "ItemCase": 12,
+            "THICCItemCase": 5,
+            "MoneyCase": 15,
+            "MrHolodilnick": 18,
+            "MedicineCase": 20,
+            "Junkbox": 15,
+            "GrenadeCase": 15,
+            "SecureGamma": 2,
+            "SecureBeta": 3,
+            "SecureAlpha": 3,
+            "SecureEpsilon": 3,
+            "SecureKappa": 1
+        }
+    }
+}

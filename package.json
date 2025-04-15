@@ -25,6 +25,6 @@
         "winston": "3.12"
     },
     "author": "Valens",
-    "contributors": [],
+    "contributors": ["Kaeno"],
     "license": "CC-BY-NC-ND-4.0"
 }

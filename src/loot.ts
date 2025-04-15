@@ -81,7 +81,6 @@ export class Loot
                 customsMarked9 = spawnPoint;
                 customsMarked9.template.Items.push(...this.itemId());
                 customsMarked9.itemDistribution.push(...this.itemDistribution());
-                this.fixCustomsProbability(spawnPoint);
                 continue;
             }
 

@@ -66,6 +66,7 @@ export class Loot
                 customsMarked1.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
             {
                 customsMarked8 = spawnPoint;
@@ -74,6 +75,7 @@ export class Loot
                 customsMarked8.itemDistribution.push(...this.fixCustomsProbability());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
             {
                 customsMarked9 = spawnPoint;
@@ -82,6 +84,7 @@ export class Loot
                 customsMarked9.itemDistribution.push(...this.fixCustomsProbability());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 10)"))
             {
                 customsMarked10 = spawnPoint;
@@ -89,14 +92,18 @@ export class Loot
                 customsMarked10.itemDistribution.push(...this.itemDistribution());
                 customsMarked10.itemDistribution.push(...this.fixCustomsProbability());
                 continue;
-            } if (spawnPoint.template.Id.startsWith("Loot 135 11)"))
+            } 
+            
+            if (spawnPoint.template.Id.startsWith("Loot 135 11)"))
             {
                 customsMarked11 = spawnPoint;
                 customsMarked11.template.Items.push(...this.itemId());
                 customsMarked11.itemDistribution.push(...this.itemDistribution());
                 customsMarked11.itemDistribution.push(...this.fixCustomsProbability());
                 continue;
-            } if (spawnPoint.template.Id.startsWith("Loot 135 12)"))
+            } 
+            
+            if (spawnPoint.template.Id.startsWith("Loot 135 12)"))
             {
                 customsMarked12 = spawnPoint;
                 customsMarked12.template.Items.push(...this.itemId());
@@ -147,6 +154,7 @@ export class Loot
                 reserveMarked1.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
             {
                 reserveMarked2 = spawnPoint;
@@ -154,6 +162,7 @@ export class Loot
                 reserveMarked2.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
             {
                 reserveMarked3 = spawnPoint;
@@ -161,6 +170,7 @@ export class Loot
                 reserveMarked3.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("cult_Loot 135 (11)"))
             {
                 reserveMarked4 = spawnPoint;
@@ -168,6 +178,7 @@ export class Loot
                 reserveMarked4.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("cult_Loot 135 (12)"))
             {
                 reserveMarked5 = spawnPoint;
@@ -175,6 +186,7 @@ export class Loot
                 reserveMarked5.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (10)51658080"))
             {
                 reserveMarked6 = spawnPoint;
@@ -182,6 +194,7 @@ export class Loot
                 reserveMarked6.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (11)"))
             {
                 reserveMarked7 = spawnPoint;
@@ -189,6 +202,7 @@ export class Loot
                 reserveMarked7.itemDistribution.push(...this.itemDistribution());        
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (12)"))
             {
                 reserveMarked8 = spawnPoint;
@@ -196,6 +210,7 @@ export class Loot
                 reserveMarked8.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (1)"))
             {
                 reserveMarked9 = spawnPoint;
@@ -203,6 +218,7 @@ export class Loot
                 reserveMarked9.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (2)51646104"))
             {
                 reserveMarked10 = spawnPoint;
@@ -210,6 +226,7 @@ export class Loot
                 reserveMarked10.itemDistribution.push(...this.itemDistribution());        
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (2)51648120"))
             {
                 reserveMarked11 = spawnPoint;
@@ -217,6 +234,7 @@ export class Loot
                 reserveMarked11.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135 (3)"))
             {
                 reserveMarked12 = spawnPoint;
@@ -224,6 +242,7 @@ export class Loot
                 reserveMarked12.itemDistribution.push(...this.itemDistribution());        
                 continue;
             }
+
         }
         
 
@@ -276,6 +295,7 @@ export class Loot
                 streets.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (1)"))
             {
                 streets1 = spawnPoint;
@@ -283,6 +303,7 @@ export class Loot
                 streets1.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (2)"))
             {
                 streets2 = spawnPoint;
@@ -290,6 +311,7 @@ export class Loot
                 streets2.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (3)"))
             {
                 streets3 = spawnPoint;
@@ -297,6 +319,7 @@ export class Loot
                 streets3.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (4)"))
             {
                 streets4 = spawnPoint;
@@ -304,6 +327,7 @@ export class Loot
                 streets4.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (5)"))
             {
                 streets5 = spawnPoint;
@@ -311,6 +335,7 @@ export class Loot
                 streets5.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (6)"))
             {
                 streets6 = spawnPoint;
@@ -318,6 +343,7 @@ export class Loot
                 streets6.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (7)"))
             {
                 streets7 = spawnPoint;
@@ -325,6 +351,7 @@ export class Loot
                 streets7.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (8)"))
             {
                 streets8 = spawnPoint;
@@ -332,6 +359,7 @@ export class Loot
                 streets8.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (9)"))
             {
                 streets9 = spawnPoint;
@@ -339,6 +367,7 @@ export class Loot
                 streets9.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (10)"))
             {
                 streets10 = spawnPoint;
@@ -346,6 +375,7 @@ export class Loot
                 streets10.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (11)"))
             {
                 streets11 = spawnPoint;                
@@ -353,6 +383,7 @@ export class Loot
                 streets11.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (12)"))
             {
                 streets12 = spawnPoint;
@@ -360,6 +391,7 @@ export class Loot
                 streets12.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (13)"))
             {
                 streets13 = spawnPoint;
@@ -367,6 +399,7 @@ export class Loot
                 streets13.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (14)"))
             {
                 streets14 = spawnPoint;
@@ -374,6 +407,7 @@ export class Loot
                 streets14.itemDistribution.push(...this.itemDistribution());
                 continue;
             }
+            
             if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (15)"))
             {
                 streets15 = spawnPoint;

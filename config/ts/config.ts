@@ -1,11 +1,12 @@
 export interface ModConfig
 {
     containersInMarkedRoom: Containers;
+    
 }
 
 export interface Containers
 {
-    RelativeProbability: RelativeProbability;
+    relativeProbability: RelativeProbability;
 }
 
 export interface RelativeProbability

@@ -151,46 +151,56 @@ export class Loot
             let reserveMarked10: ISpawnpoint;
             let reserveMarked11: ISpawnpoint;
             let reserveMarked12: ISpawnpoint;
+            let reserveMarked13: ISpawnpoint;
 
             //* Reserve Marked Room Loot.
-            // Loot 135 (10)51646628 is 
-            // Loot 135 (8) is 
-            // Loot 135 (9) is 
-            // Cult Loot 135 (11) is 
-            // Cult Loot 135 (12) is 
-            // Loot 135 (10)51658080 is 
-            // Loot 135 (11) is 
-            // Loot 135 (12) is 
-            // Loot 135 (1) is 
-            // Loot 135 (2)51646104 is 
-            // Loot 135 (2)51648120 is 
-            // Loot 135 (3) is 
+            // Loot 135 (1) is general items. Motor, pcb, gpu, etc.
+            // Loot 135 (2)11b8069f is electronics GPU, motor, VPX, etc.
+            // Loot 135 (2)5bf63cd1 is btc, figurines, etc.
+            // Loot 135 (3) is general items. Motor, pcb, gpu, etc.
+            // Loot 135 (8) is is btc, figurines, etc.
+            // Loot 135 (9) is container
+            // Loot 135 (10)317af6ee is container
+            // Loot 135 (10)c643b1b4 is container
+            // Cult Loot 135 (11) is container
+            // Cult Loot 135 (12) is container
+            // Cult Loot 135 (13) is container
+            // Loot 135 (11)4d454522 is container
+            // Loot 135 (11)515d00d4 is container
+            // Loot 135 (12)473ac088 is container
+            // Loot 135 (12)4be723ec is container
+            // Loot 135 (13)73278017 is container
+            // Loot 135 (13)a1defdc6 is container
+            // Loot 135 (14) is container
             // */
             
             // For loop through the Spawnpoints
             for (const spawnPoint of rezervbase)
             {
-                if (spawnPoint.template.Id.startsWith("Loot 135 (10)51646628"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (9"))
                 {
                     reserveMarked1 = spawnPoint;
                     reserveMarked1.template.Items.push(...this.containers());
                     reserveMarked1.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (10) [317af6ee"))
                 {
                     reserveMarked2 = spawnPoint;
                     reserveMarked2.template.Items.push(...this.containers());
                     reserveMarked2.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (10) [c643b1b4"))
                 {
                     reserveMarked3 = spawnPoint;
                     reserveMarked3.template.Items.push(...this.containers());
                     reserveMarked3.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
@@ -199,6 +209,7 @@ export class Loot
                     reserveMarked4 = spawnPoint;
                     reserveMarked4.template.Items.push(...this.containers());
                     reserveMarked4.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
@@ -207,62 +218,79 @@ export class Loot
                     reserveMarked5 = spawnPoint;
                     reserveMarked5.template.Items.push(...this.containers());
                     reserveMarked5.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (10)51658080"))
+                if (spawnPoint.template.Id.startsWith("cult_Loot 135 (13)"))
                 {
                     reserveMarked6 = spawnPoint;
                     reserveMarked6.template.Items.push(...this.containers());
                     reserveMarked6.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (11)"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (11) [4d454522"))
                 {
                     reserveMarked7 = spawnPoint;
                     reserveMarked7.template.Items.push(...this.containers());
                     reserveMarked7.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (12)"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (11) [515d00d4"))
                 {
                     reserveMarked8 = spawnPoint;
                     reserveMarked8.template.Items.push(...this.containers());
                     reserveMarked8.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (1)"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (12) [473ac088"))
                 {
                     reserveMarked9 = spawnPoint;
                     reserveMarked9.template.Items.push(...this.containers());
                     reserveMarked9.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (2)51646104"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (12) [4be723ec"))
                 {
                     reserveMarked10 = spawnPoint;
                     reserveMarked10.template.Items.push(...this.containers());
                     reserveMarked10.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (2)51648120"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (13) [73278017"))
                 {
                     reserveMarked11 = spawnPoint;
                     reserveMarked11.template.Items.push(...this.containers());
                     reserveMarked11.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135 (3)"))
+                if (spawnPoint.template.Id.startsWith("Loot 135 (13) [a1defdc6"))
                 {
                     reserveMarked12 = spawnPoint;
                     reserveMarked12.template.Items.push(...this.containers());
                     reserveMarked12.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135 (14)"))
+                {
+                    reserveMarked13 = spawnPoint;
+                    reserveMarked13.template.Items.push(...this.containers());
+                    reserveMarked13.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "rezervbase");
                     continue;
                 }
             }

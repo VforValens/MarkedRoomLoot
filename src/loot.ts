@@ -39,9 +39,38 @@ export class Loot
                 // Removing excluded filters from backpacks so that containers may fit inside them.
                 items[item]._props.Grids[0]._props.filters[0].ExcludedFilter = [];
             }
+            
+            if (items[item]._parent === BaseClasses.BACKPACK && items[item]._props.Grids[1]._props.filters.length > 0)
+            {
+                // Removing excluded filters from backpacks so that containers may fit inside them.
+                items[item]._props.Grids[1]._props.filters[0].ExcludedFilter = [];
+            }
+            
+            if (items[item]._parent === BaseClasses.BACKPACK && items[item]._props.Grids[2]._props.filters.length > 0)
+            {
+                // Removing excluded filters from backpacks so that containers may fit inside them.
+                items[item]._props.Grids[2]._props.filters[0].ExcludedFilter = [];
+            }
+            
+            if (items[item]._parent === BaseClasses.BACKPACK && items[item]._props.Grids[3]._props.filters.length > 0)
+            {
+                // Removing excluded filters from backpacks so that containers may fit inside them.
+                items[item]._props.Grids[3]._props.filters[0].ExcludedFilter = [];
+            }
+            
+            if (items[item]._parent === BaseClasses.BACKPACK && items[item]._props.Grids[4]._props.filters.length > 0)
+            {
+                // Removing excluded filters from backpacks so that containers may fit inside them.
+                items[item]._props.Grids[4]._props.filters[0].ExcludedFilter = [];
+            }
+            
+            if (items[item]._parent === BaseClasses.BACKPACK && items[item]._props.Grids[5]._props.filters.length > 0)
+            {
+                // Removing excluded filters from backpacks so that containers may fit inside them.
+                items[item]._props.Grids[5]._props.filters[0].ExcludedFilter = [];
+            }
         }
     }
-
 
     /**
      * Changes the loot database/tables to include containers in marked rooms.

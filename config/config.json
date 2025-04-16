@@ -1,7 +1,7 @@
 {
     "containersInMarkedRoom":
     { 
-        "RelativeProbability":
+        "relativeProbability":
         {
             "SICCpouch": 10,
             "MagazineCase": 33,

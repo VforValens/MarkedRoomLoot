@@ -1,6 +1,6 @@
 {
     "name": "MarkedRoomLoot",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "sptVersion": "~3.11",
     "loadBefore": [],
     "loadAfter": [],

@@ -414,7 +414,7 @@ export class Loot
                 streets15.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
-        }      
+        }
     }
 
     

@@ -1,7 +1,7 @@
 export interface ModConfig
 {
     containersInMarkedRoom: Containers;
-    
+    locations: Locations;
 }
 
 export interface Containers
@@ -36,4 +36,11 @@ export interface RelativeProbability
     InjectorCase: number;
     Keytool: number;
     KeycardHolder: number;
+}
+
+export interface Locations
+{
+    bigmap: Record<string, string>;
+    reserve: Record<string, string>;
+    streets: Record<string, string>;
 }

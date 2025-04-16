@@ -24,7 +24,7 @@ export class Loot
     public updateLoot(): void
     {
         this.disableBackpackExcludedFilters();
-        this.logger.info("Backpack Excluded Filters for containers have been disabled.");
+        this.logger.info("Backpack Excluded Filters have been disabled.");
         this.containersInMarkedRoom();
         this.logger.info("Marked Room Loot has been updated.");
     }

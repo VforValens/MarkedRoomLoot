@@ -34,7 +34,7 @@ export class Loot
         const items = this.tables.getTables().templates.items;
         for (const item of Object.keys(items)) 
         {
-            if (BaseClasses.BACKPACK)
+            if (items[item]._parent === BaseClasses.BACKPACK && items[item]._props.Grids[0]._props.filters.length > 0)
             {
                 // Removing excluded filters from backpacks so that containers may fit inside them.
                 items[item]._props.Grids[0]._props.filters[0].ExcludedFilter = []; 

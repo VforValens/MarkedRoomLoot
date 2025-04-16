@@ -7,7 +7,7 @@ import { BaseClasses } from "@spt/models/enums/BaseClasses";
 
 import { ModConfig } from "../config/ts/config";
 
-export class Loot 
+export class Loot
 {
     private modConfig: ModConfig = require("../config/config.json");
     private logger: ILogger;
@@ -32,12 +32,12 @@ export class Loot
     private disableBackpackExcludedFilters(): void
     {
         const items = this.tables.getTables().templates.items;
-        for (const item of Object.keys(items)) 
+        for (const item of Object.keys(items))
         {
             if (items[item]._parent === BaseClasses.BACKPACK && items[item]._props.Grids[0]._props.filters.length > 0)
             {
                 // Removing excluded filters from backpacks so that containers may fit inside them.
-                items[item]._props.Grids[0]._props.filters[0].ExcludedFilter = []; 
+                items[item]._props.Grids[0]._props.filters[0].ExcludedFilter = [];
             }
         }
     }
@@ -51,388 +51,398 @@ export class Loot
     private containersInMarkedRoom(): void
     {
         // Customs Marked Room Loot.
-        let spawnPoints = this.tables.getTables().locations.bigmap.looseLoot.spawnpoints;
-        let customsMarked1: ISpawnpoint = null;
-        let customsMarked8: ISpawnpoint = null;
-        let customsMarked9: ISpawnpoint = null;
-        let customsMarked10: ISpawnpoint = null;
-        let customsMarked11: ISpawnpoint = null;
-        let customsMarked12: ISpawnpoint = null;
+        const database = this.tables?.getTables();
+        const customs = database?.locations?.bigmap?.looseLoot?.spawnpoints;
 
-        //* Customs Marked Room Loot.
-        // Loot 135 (1) is electronics, and other small items like GPU, Motor, etc.
-        // Loot 135 (2) is $, Euro, Roubles
-        // Loot 135 (4) is GP Coin, Roubles, $
-        // Loot 135 (7) is Euro, Roubles, GP Coin
-        // Loot 135 (8) is containers (ammo, dogtag, docs, key tool, injector case, keycard holder)
-        // Loot 135 (9) is weapons and ammunition case
-        // Loot 135 (10) is containers 
-        // Loot 135 (11) is containers 
-        // Loot 135 (12) is containers 
-        // */
-        
-
-        // For loop through the Spawnpoints
-        for (const spawnPoint of spawnPoints)
+        if (customs)
         {
-            if (spawnPoint.template.Id.startsWith("Loot 135 (1)"))
-            {
-                customsMarked1 = spawnPoint;
-                customsMarked1.template.Items.push(...this.containers());
-                customsMarked1.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+            let customsMarked1: ISpawnpoint;
+            let customsMarked8: ISpawnpoint;
+            let customsMarked9: ISpawnpoint;
+            let customsMarked10: ISpawnpoint;
+            let customsMarked11: ISpawnpoint;
+            let customsMarked12: ISpawnpoint;
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
-            {
-                customsMarked8 = spawnPoint;
-                customsMarked8.template.Items.push(...this.containers());
-                customsMarked8.itemDistribution.push(...this.containerDistribution());
-                this.fixCustomsProbability(spawnPoint);
-                continue;
-            }
-
-            if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
-            {
-                customsMarked9 = spawnPoint;
-                customsMarked9.template.Items.push(...this.containers());
-                customsMarked9.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
-
-            if (spawnPoint.template.Id.startsWith("Loot 135 10)"))
-            {
-                customsMarked10 = spawnPoint;
-                customsMarked10.template.Items.push(...this.containers());
-                customsMarked10.itemDistribution.push(...this.containerDistribution());
-                this.fixCustomsProbability(spawnPoint);
-                continue;
-            } 
+            //* Customs Marked Room Loot.
+            // Loot 135 (1) is electronics, and other small items like GPU, Motor, etc.
+            // Loot 135 (2) is $, Euro, Roubles
+            // Loot 135 (4) is GP Coin, Roubles, $
+            // Loot 135 (7) is Euro, Roubles, GP Coin
+            // Loot 135 (8) is containers (ammo, dogtag, docs, key tool, injector case, keycard holder)
+            // Loot 135 (9) is weapons and ammunition case
+            // Loot 135 (10) is containers
+            // Loot 135 (11) is containers
+            // Loot 135 (12) is containers
+            // */
             
-            if (spawnPoint.template.Id.startsWith("Loot 135 11)"))
+
+            // For loop through the Spawnpoints
+            for (const spawnPoint of customs)
             {
-                customsMarked11 = spawnPoint;
-                customsMarked11.template.Items.push(...this.containers());
-                customsMarked11.itemDistribution.push(...this.containerDistribution());
-                this.fixCustomsProbability(spawnPoint);
-                continue;
-            } 
-            
-            if (spawnPoint.template.Id.startsWith("Loot 135 12)"))
-            {
-                customsMarked12 = spawnPoint;
-                customsMarked12.template.Items.push(...this.containers());
-                customsMarked12.itemDistribution.push(...this.containerDistribution());
-                this.fixCustomsProbability(spawnPoint);
-                continue;
+                if (spawnPoint.template.Id.startsWith("Loot 135 (1)"))
+                {
+                    customsMarked1 = spawnPoint;
+                    customsMarked1.template.Items.push(...this.containers());
+                    customsMarked1.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
+                {
+                    customsMarked8 = spawnPoint;
+                    customsMarked8.template.Items.push(...this.containers());
+                    customsMarked8.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "bigmap");
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
+                {
+                    customsMarked9 = spawnPoint;
+                    customsMarked9.template.Items.push(...this.containers());
+                    customsMarked9.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135 (10)"))
+                {
+                    customsMarked10 = spawnPoint;
+                    customsMarked10.template.Items.push(...this.containers());
+                    customsMarked10.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "bigmap");
+                    continue;
+                }
+                
+                if (spawnPoint.template.Id.startsWith("Loot 135 (11)"))
+                {
+                    customsMarked11 = spawnPoint;
+                    customsMarked11.template.Items.push(...this.containers());
+                    customsMarked11.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "bigmap");
+                    continue;
+                }
+                
+                if (spawnPoint.template.Id.startsWith("Loot 135 (12)"))
+                {
+                    customsMarked12 = spawnPoint;
+                    customsMarked12.template.Items.push(...this.containers());
+                    customsMarked12.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "bigmap");
+                    continue;
+                }
             }
-        }    
+        }
         
                 
         // Reserve Marked Room Loot.
-        spawnPoints = this.tables.getTables().locations.rezervbase.looseLoot.spawnpoints;
-        let reserveMarked1: ISpawnpoint = null;
-        let reserveMarked2: ISpawnpoint = null;
-        let reserveMarked3: ISpawnpoint = null;
-        let reserveMarked4: ISpawnpoint = null;
-        let reserveMarked5: ISpawnpoint = null;
-        let reserveMarked6: ISpawnpoint = null;
-        let reserveMarked7: ISpawnpoint = null;
-        let reserveMarked8: ISpawnpoint = null;
-        let reserveMarked9: ISpawnpoint = null;
-        let reserveMarked10: ISpawnpoint = null;
-        let reserveMarked11: ISpawnpoint = null;
-        let reserveMarked12: ISpawnpoint = null;
-
-        //* Reserve Marked Room Loot.
-        // Loot 135 (10)51646628 is 
-        // Loot 135 (8) is 
-        // Loot 135 (9) is 
-        // Cult Loot 135 (11) is
-        // Cult Loot 135 (12) is
-        // Loot 135 (10)51658080 is
-        // Loot 135 (11) is
-        // Loot 135 (12) is
-        // Loot 135 (1) is
-        // Loot 135 (2)51646104 is
-        // Loot 135 (2)51648120 is
-        // Loot 135 (3) is 
-        // */
+        const rezervbase = database.locations?.rezervbase?.looseLoot?.spawnpoints;
         
-        // For loop through the Spawnpoints
-        for (const spawnPoint of spawnPoints)
+        if (rezervbase)
         {
-            if (spawnPoint.template.Id.startsWith("Loot 135 (10)51646628"))
-            {
-                reserveMarked1 = spawnPoint;
-                reserveMarked1.template.Items.push(...this.containers());
-                reserveMarked1.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+            let reserveMarked1: ISpawnpoint;
+            let reserveMarked2: ISpawnpoint;
+            let reserveMarked3: ISpawnpoint;
+            let reserveMarked4: ISpawnpoint;
+            let reserveMarked5: ISpawnpoint;
+            let reserveMarked6: ISpawnpoint;
+            let reserveMarked7: ISpawnpoint;
+            let reserveMarked8: ISpawnpoint;
+            let reserveMarked9: ISpawnpoint;
+            let reserveMarked10: ISpawnpoint;
+            let reserveMarked11: ISpawnpoint;
+            let reserveMarked12: ISpawnpoint;
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
+            //* Reserve Marked Room Loot.
+            // Loot 135 (10)51646628 is 
+            // Loot 135 (8) is 
+            // Loot 135 (9) is 
+            // Cult Loot 135 (11) is 
+            // Cult Loot 135 (12) is 
+            // Loot 135 (10)51658080 is 
+            // Loot 135 (11) is 
+            // Loot 135 (12) is 
+            // Loot 135 (1) is 
+            // Loot 135 (2)51646104 is 
+            // Loot 135 (2)51648120 is 
+            // Loot 135 (3) is 
+            // */
+            
+            // For loop through the Spawnpoints
+            for (const spawnPoint of rezervbase)
             {
-                reserveMarked2 = spawnPoint;
-                reserveMarked2.template.Items.push(...this.containers());
-                reserveMarked2.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (10)51646628"))
+                {
+                    reserveMarked1 = spawnPoint;
+                    reserveMarked1.template.Items.push(...this.containers());
+                    reserveMarked1.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
-            {
-                reserveMarked3 = spawnPoint;
-                reserveMarked3.template.Items.push(...this.containers());
-                reserveMarked3.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (8)"))
+                {
+                    reserveMarked2 = spawnPoint;
+                    reserveMarked2.template.Items.push(...this.containers());
+                    reserveMarked2.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("cult_Loot 135 (11)"))
-            {
-                reserveMarked4 = spawnPoint;
-                reserveMarked4.template.Items.push(...this.containers());
-                reserveMarked4.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (9)"))
+                {
+                    reserveMarked3 = spawnPoint;
+                    reserveMarked3.template.Items.push(...this.containers());
+                    reserveMarked3.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("cult_Loot 135 (12)"))
-            {
-                reserveMarked5 = spawnPoint;
-                reserveMarked5.template.Items.push(...this.containers());
-                reserveMarked5.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("cult_Loot 135 (11)"))
+                {
+                    reserveMarked4 = spawnPoint;
+                    reserveMarked4.template.Items.push(...this.containers());
+                    reserveMarked4.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (10)51658080"))
-            {
-                reserveMarked6 = spawnPoint;
-                reserveMarked6.template.Items.push(...this.containers());
-                reserveMarked6.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("cult_Loot 135 (12)"))
+                {
+                    reserveMarked5 = spawnPoint;
+                    reserveMarked5.template.Items.push(...this.containers());
+                    reserveMarked5.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (11)"))
-            {
-                reserveMarked7 = spawnPoint;
-                reserveMarked7.template.Items.push(...this.containers());
-                reserveMarked7.itemDistribution.push(...this.containerDistribution());        
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (10)51658080"))
+                {
+                    reserveMarked6 = spawnPoint;
+                    reserveMarked6.template.Items.push(...this.containers());
+                    reserveMarked6.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (12)"))
-            {
-                reserveMarked8 = spawnPoint;
-                reserveMarked8.template.Items.push(...this.containers());
-                reserveMarked8.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (11)"))
+                {
+                    reserveMarked7 = spawnPoint;
+                    reserveMarked7.template.Items.push(...this.containers());
+                    reserveMarked7.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (1)"))
-            {
-                reserveMarked9 = spawnPoint;
-                reserveMarked9.template.Items.push(...this.containers());
-                reserveMarked9.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (12)"))
+                {
+                    reserveMarked8 = spawnPoint;
+                    reserveMarked8.template.Items.push(...this.containers());
+                    reserveMarked8.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (2)51646104"))
-            {
-                reserveMarked10 = spawnPoint;
-                reserveMarked10.template.Items.push(...this.containers());
-                reserveMarked10.itemDistribution.push(...this.containerDistribution());        
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (1)"))
+                {
+                    reserveMarked9 = spawnPoint;
+                    reserveMarked9.template.Items.push(...this.containers());
+                    reserveMarked9.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (2)51648120"))
-            {
-                reserveMarked11 = spawnPoint;
-                reserveMarked11.template.Items.push(...this.containers());
-                reserveMarked11.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (2)51646104"))
+                {
+                    reserveMarked10 = spawnPoint;
+                    reserveMarked10.template.Items.push(...this.containers());
+                    reserveMarked10.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135 (3)"))
-            {
-                reserveMarked12 = spawnPoint;
-                reserveMarked12.template.Items.push(...this.containers());
-                reserveMarked12.itemDistribution.push(...this.containerDistribution());        
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135 (2)51648120"))
+                {
+                    reserveMarked11 = spawnPoint;
+                    reserveMarked11.template.Items.push(...this.containers());
+                    reserveMarked11.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
+                if (spawnPoint.template.Id.startsWith("Loot 135 (3)"))
+                {
+                    reserveMarked12 = spawnPoint;
+                    reserveMarked12.template.Items.push(...this.containers());
+                    reserveMarked12.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
+            }
         }
         
 
         // Streets Marked Room Loot.
-        spawnPoints = this.tables.getTables().locations.tarkovstreets.looseLoot.spawnpoints;
-        let streets: ISpawnpoint = null;
-        let streets1: ISpawnpoint = null;
-        let streets2: ISpawnpoint = null;
-        let streets3: ISpawnpoint = null;
-        let streets4: ISpawnpoint = null;
-        let streets5: ISpawnpoint = null;
-        let streets6: ISpawnpoint = null;
-        let streets7: ISpawnpoint = null;
-        let streets8: ISpawnpoint = null;
-        let streets9: ISpawnpoint = null;
-        let streets10: ISpawnpoint = null;
-        let streets11: ISpawnpoint = null;
-        let streets12: ISpawnpoint = null;
-        let streets13: ISpawnpoint = null;
-        let streets14: ISpawnpoint = null;
-        let streets15: ISpawnpoint = null;
-
-        //* Streets Marked Room Loot.
-        // Loot 135_Leo_Rare2741538 is 
-        // Loot 135_Leo_Rare (1) is 
-        // Loot 135_Leo_Rare (2) is
-        // Loot 135_Leo_Rare (3) is
-        // Loot 135_Leo_Rare (4) is
-        // Loot 135_Leo_Rare (5) is
-        // Loot 135_Leo_Rare (6) is
-        // Loot 135_Leo_Rare (7) is
-        // Loot 135_Leo_Rare (8) is
-        // Loot 135_Leo_Rare (9) is
-        // Loot 135_Leo_Rare (10) is
-        // Loot 135_Leo_Rare (11) is
-        // Loot 135_Leo_Rare (12) is
-        // Loot 135_Leo_Rare (13) is
-        // Loot 135_Leo_Rare (14) is
-        // Loot 135_Leo_Rare (15) is 
-        // */
-
-
-        // For loop through the Spawnpoints
-        for (const spawnPoint of spawnPoints)
+        const tarkovstreets = database?.locations?.tarkovstreets?.looseLoot?.spawnpoints;
+        if (tarkovstreets)
         {
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare2741538"))
-            {
-                streets = spawnPoint;
-                streets.template.Items.push(...this.containers());
-                streets.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+            let streets: ISpawnpoint;
+            let streets1: ISpawnpoint;
+            let streets2: ISpawnpoint;
+            let streets3: ISpawnpoint;
+            let streets4: ISpawnpoint;
+            let streets5: ISpawnpoint;
+            let streets6: ISpawnpoint;
+            let streets7: ISpawnpoint;
+            let streets8: ISpawnpoint;
+            let streets9: ISpawnpoint;
+            let streets10: ISpawnpoint;
+            let streets11: ISpawnpoint;
+            let streets12: ISpawnpoint;
+            let streets13: ISpawnpoint;
+            let streets14: ISpawnpoint;
+            let streets15: ISpawnpoint;
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (1)"))
-            {
-                streets1 = spawnPoint;
-                streets1.template.Items.push(...this.containers());
-                streets1.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+            //* Streets Marked Room Loot.
+            // Loot 135_Leo_Rare2741538 is 
+            // Loot 135_Leo_Rare (1) is 
+            // Loot 135_Leo_Rare (2) is 
+            // Loot 135_Leo_Rare (3) is 
+            // Loot 135_Leo_Rare (4) is 
+            // Loot 135_Leo_Rare (5) is 
+            // Loot 135_Leo_Rare (6) is 
+            // Loot 135_Leo_Rare (7) is 
+            // Loot 135_Leo_Rare (8) is 
+            // Loot 135_Leo_Rare (9) is 
+            // Loot 135_Leo_Rare (10) is 
+            // Loot 135_Leo_Rare (11) is 
+            // Loot 135_Leo_Rare (12) is 
+            // Loot 135_Leo_Rare (13) is 
+            // Loot 135_Leo_Rare (14) is 
+            // Loot 135_Leo_Rare (15) is 
+            // */
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (2)"))
-            {
-                streets2 = spawnPoint;
-                streets2.template.Items.push(...this.containers());
-                streets2.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (3)"))
+            // For loop through the Spawnpoints
+            for (const spawnPoint of tarkovstreets)
             {
-                streets3 = spawnPoint;
-                streets3.template.Items.push(...this.containers());
-                streets3.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare2741538"))
+                {
+                    streets = spawnPoint;
+                    streets.template.Items.push(...this.containers());
+                    streets.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (4)"))
-            {
-                streets4 = spawnPoint;
-                streets4.template.Items.push(...this.containers());
-                streets4.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (1)"))
+                {
+                    streets1 = spawnPoint;
+                    streets1.template.Items.push(...this.containers());
+                    streets1.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (5)"))
-            {
-                streets5 = spawnPoint;
-                streets5.template.Items.push(...this.containers());
-                streets5.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (2)"))
+                {
+                    streets2 = spawnPoint;
+                    streets2.template.Items.push(...this.containers());
+                    streets2.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (6)"))
-            {
-                streets6 = spawnPoint;
-                streets6.template.Items.push(...this.containers());
-                streets6.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (3)"))
+                {
+                    streets3 = spawnPoint;
+                    streets3.template.Items.push(...this.containers());
+                    streets3.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (7)"))
-            {
-                streets7 = spawnPoint;
-                streets7.template.Items.push(...this.containers());
-                streets7.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (4)"))
+                {
+                    streets4 = spawnPoint;
+                    streets4.template.Items.push(...this.containers());
+                    streets4.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (8)"))
-            {
-                streets8 = spawnPoint;
-                streets8.template.Items.push(...this.containers());
-                streets8.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (5)"))
+                {
+                    streets5 = spawnPoint;
+                    streets5.template.Items.push(...this.containers());
+                    streets5.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (9)"))
-            {
-                streets9 = spawnPoint;
-                streets9.template.Items.push(...this.containers());
-                streets9.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (6)"))
+                {
+                    streets6 = spawnPoint;
+                    streets6.template.Items.push(...this.containers());
+                    streets6.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (10)"))
-            {
-                streets10 = spawnPoint;
-                streets10.template.Items.push(...this.containers());
-                streets10.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (7)"))
+                {
+                    streets7 = spawnPoint;
+                    streets7.template.Items.push(...this.containers());
+                    streets7.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (11)"))
-            {
-                streets11 = spawnPoint;                
-                streets11.template.Items.push(...this.containers());
-                streets11.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (8)"))
+                {
+                    streets8 = spawnPoint;
+                    streets8.template.Items.push(...this.containers());
+                    streets8.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (12)"))
-            {
-                streets12 = spawnPoint;
-                streets12.template.Items.push(...this.containers());
-                streets12.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (9)"))
+                {
+                    streets9 = spawnPoint;
+                    streets9.template.Items.push(...this.containers());
+                    streets9.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (13)"))
-            {
-                streets13 = spawnPoint;
-                streets13.template.Items.push(...this.containers());
-                streets13.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (10)"))
+                {
+                    streets10 = spawnPoint;
+                    streets10.template.Items.push(...this.containers());
+                    streets10.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
 
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (14)"))
-            {
-                streets14 = spawnPoint;
-                streets14.template.Items.push(...this.containers());
-                streets14.itemDistribution.push(...this.containerDistribution());
-                continue;
-            }
-            
-            if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (15)"))
-            {
-                streets15 = spawnPoint;
-                streets15.template.Items.push(...this.containers());
-                streets15.itemDistribution.push(...this.containerDistribution());
-                continue;
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (11)"))
+                {
+                    streets11 = spawnPoint;
+                    streets11.template.Items.push(...this.containers());
+                    streets11.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (12)"))
+                {
+                    streets12 = spawnPoint;
+                    streets12.template.Items.push(...this.containers());
+                    streets12.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (13)"))
+                {
+                    streets13 = spawnPoint;
+                    streets13.template.Items.push(...this.containers());
+                    streets13.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (14)"))
+                {
+                    streets14 = spawnPoint;
+                    streets14.template.Items.push(...this.containers());
+                    streets14.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
+                
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (15)"))
+                {
+                    streets15 = spawnPoint;
+                    streets15.template.Items.push(...this.containers());
+                    streets15.itemDistribution.push(...this.containerDistribution());
+                    continue;
+                }
             }
         }
     }
-
     
     private containers(): IItem[]
     {
@@ -488,16 +498,26 @@ export class Loot
         return itemDistribution;
     }
 
-    private fixCustomsProbability(spawnPoint: ISpawnpoint): void
+    private fixLocationProbabilities(spawnPoint: ISpawnpoint, locationName: string): void
     {
         const relativeProbability = this.modConfig.containersInMarkedRoom.relativeProbability;
+        const locationToChange = this.modConfig.locations[locationName];
+        
+        for (const spawnPointKey in locationToChange)
+        {
+            const matchedSpawnpoint = spawnPoint.itemDistribution.find(x => x.composedKey.key === spawnPointKey);
+            if (!matchedSpawnpoint)
+            {
+                console.log(`${spawnPointKey} not found`);
+                continue;
+            }
 
-        spawnPoint.itemDistribution.find(x => x.composedKey.key === "412439036").relativeProbability = relativeProbability.AmmoCase;
-        spawnPoint.itemDistribution.find(x => x.composedKey.key === "124471609").relativeProbability = relativeProbability.DocsCase;
-        spawnPoint.itemDistribution.find(x => x.composedKey.key === "1036505762").relativeProbability = relativeProbability.DogtagsCase;
-        spawnPoint.itemDistribution.find(x => x.composedKey.key === "344660402").relativeProbability = relativeProbability.InjectorCase;
-        spawnPoint.itemDistribution.find(x => x.composedKey.key === "1714132912").relativeProbability = relativeProbability.Keytool;
-        spawnPoint.itemDistribution.find(x => x.composedKey.key === "1251084789").relativeProbability = relativeProbability.KeycardHolder;
+            const spawnPointType = locationToChange[spawnPointKey];
+            const newProbability = relativeProbability[spawnPointType];
+            matchedSpawnpoint.relativeProbability = newProbability;
+            console.log(`${matchedSpawnpoint.composedKey.key} found changing relativeProbability to 
+                ${relativeProbability[locationToChange[spawnPointKey]]}`);
+        }
     }
     
 }

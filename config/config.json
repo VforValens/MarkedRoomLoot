@@ -42,21 +42,21 @@
         },
         "rezervbase": 
         {
-            "1": "AmmoCase",
-            "2": "DocsCase",
-            "3": "DogtagsCase",
-            "4": "InjectorCase",
-            "5": "Keytool",
-            "6": "KeycardHolder"
+            "412439036": "AmmoCase",
+            "124471609": "DocsCase",
+            "1036505762": "DogtagsCase",
+            "344660402": "InjectorCase",
+            "1714132912": "Keytool",
+            "1251084789": "KeycardHolder"
         },
         "tarkovstreets": 
         {
-            "1": "AmmoCase",
-            "2": "DocsCase",
-            "3": "DogtagsCase",
-            "4": "InjectorCase",
-            "5": "Keytool",
-            "6": "KeycardHolder"
+            "412439036": "AmmoCase",
+            "124471609": "DocsCase",
+            "1036505762": "DogtagsCase",
+            "344660402": "InjectorCase",
+            "1714132912": "Keytool",
+            "1251084789": "KeycardHolder"
         }
     }
 }

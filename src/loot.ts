@@ -301,7 +301,6 @@ export class Loot
         const tarkovstreets = database?.locations?.tarkovstreets?.looseLoot?.spawnpoints;
         if (tarkovstreets)
         {
-            let streets: ISpawnpoint;
             let streets1: ISpawnpoint;
             let streets2: ISpawnpoint;
             let streets3: ISpawnpoint;
@@ -310,162 +309,104 @@ export class Loot
             let streets6: ISpawnpoint;
             let streets7: ISpawnpoint;
             let streets8: ISpawnpoint;
-            let streets9: ISpawnpoint;
-            let streets10: ISpawnpoint;
-            let streets11: ISpawnpoint;
-            let streets12: ISpawnpoint;
-            let streets13: ISpawnpoint;
-            let streets14: ISpawnpoint;
-            let streets15: ISpawnpoint;
 
             //* Streets Marked Room Loot.
             // Loot 135_Leo_Rare2741538 is 
-            // Loot 135_Leo_Rare (1) is 
-            // Loot 135_Leo_Rare (2) is 
-            // Loot 135_Leo_Rare (3) is 
-            // Loot 135_Leo_Rare (4) is 
-            // Loot 135_Leo_Rare (5) is 
-            // Loot 135_Leo_Rare (6) is 
-            // Loot 135_Leo_Rare (7) is 
-            // Loot 135_Leo_Rare (8) is 
-            // Loot 135_Leo_Rare (9) is 
-            // Loot 135_Leo_Rare (10) is 
-            // Loot 135_Leo_Rare (11) is 
-            // Loot 135_Leo_Rare (12) is 
-            // Loot 135_Leo_Rare (13) is 
-            // Loot 135_Leo_Rare (14) is 
-            // Loot 135_Leo_Rare (15) is 
+            // Loot 135_Leo_Rare (1) is general items
+            // Loot 135_Leo_Rare (2) is general items
+            // Loot 135_Leo_Rare (3) is general items
+            // Loot 135_Leo_Rare (4) is general items
+            // Loot 135_Leo_Rare (5) is general items
+            // Loot 135_Leo_Rare (6) is general items
+            // Loot 135_Leo_Rare (7) is general items
+            // Loot 135_Leo_Rare (8) is container
+            // Loot 135_Leo_Rare (9) is weapons
+            // Loot 135_Leo_Rare (10) is container
+            // Loot 135_Leo_Rare (11) is general items
+            // Loot 135_Leo_Rare (12) is armor
+            // Loot 135_Leo_Rare (13) is weapons
+            // Loot 135_Leo_Rare (14) is general items
+            // Loot 135_Leo_Rare (15) is container
+            // Loot 135_Leo_Rare (29) is container
+            // Loot 135_Leo_Rare (30) is container
+            // Loot 135_Leo_Rare (31) is container
+            // Loot 135_Leo_Rare (41) is container
+            // Loot 135_Leo_Rare (43) is container
             // */
 
 
             // For loop through the Spawnpoints
             for (const spawnPoint of tarkovstreets)
             {
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare2741538"))
-                {
-                    streets = spawnPoint;
-                    streets.template.Items.push(...this.containers());
-                    streets.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (1)"))
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (8)"))
                 {
                     streets1 = spawnPoint;
                     streets1.template.Items.push(...this.containers());
                     streets1.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (2)"))
-                {
-                    streets2 = spawnPoint;
-                    streets2.template.Items.push(...this.containers());
-                    streets2.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (3)"))
-                {
-                    streets3 = spawnPoint;
-                    streets3.template.Items.push(...this.containers());
-                    streets3.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (4)"))
-                {
-                    streets4 = spawnPoint;
-                    streets4.template.Items.push(...this.containers());
-                    streets4.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (5)"))
-                {
-                    streets5 = spawnPoint;
-                    streets5.template.Items.push(...this.containers());
-                    streets5.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (6)"))
-                {
-                    streets6 = spawnPoint;
-                    streets6.template.Items.push(...this.containers());
-                    streets6.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (7)"))
-                {
-                    streets7 = spawnPoint;
-                    streets7.template.Items.push(...this.containers());
-                    streets7.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (8)"))
-                {
-                    streets8 = spawnPoint;
-                    streets8.template.Items.push(...this.containers());
-                    streets8.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (9)"))
-                {
-                    streets9 = spawnPoint;
-                    streets9.template.Items.push(...this.containers());
-                    streets9.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
                     continue;
                 }
 
                 if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (10)"))
                 {
-                    streets10 = spawnPoint;
-                    streets10.template.Items.push(...this.containers());
-                    streets10.itemDistribution.push(...this.containerDistribution());
+                    streets2 = spawnPoint;
+                    streets2.template.Items.push(...this.containers());
+                    streets2.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
                     continue;
                 }
 
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (11)"))
-                {
-                    streets11 = spawnPoint;
-                    streets11.template.Items.push(...this.containers());
-                    streets11.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (12)"))
-                {
-                    streets12 = spawnPoint;
-                    streets12.template.Items.push(...this.containers());
-                    streets12.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (13)"))
-                {
-                    streets13 = spawnPoint;
-                    streets13.template.Items.push(...this.containers());
-                    streets13.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-
-                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (14)"))
-                {
-                    streets14 = spawnPoint;
-                    streets14.template.Items.push(...this.containers());
-                    streets14.itemDistribution.push(...this.containerDistribution());
-                    continue;
-                }
-                
                 if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (15)"))
                 {
-                    streets15 = spawnPoint;
-                    streets15.template.Items.push(...this.containers());
-                    streets15.itemDistribution.push(...this.containerDistribution());
+                    streets3 = spawnPoint;
+                    streets3.template.Items.push(...this.containers());
+                    streets3.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (29)"))
+                {
+                    streets4 = spawnPoint;
+                    streets4.template.Items.push(...this.containers());
+                    streets4.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (30)"))
+                {
+                    streets5 = spawnPoint;
+                    streets5.template.Items.push(...this.containers());
+                    streets5.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (31)"))
+                {
+                    streets6 = spawnPoint;
+                    streets6.template.Items.push(...this.containers());
+                    streets6.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (41)"))
+                {
+                    streets7 = spawnPoint;
+                    streets7.template.Items.push(...this.containers());
+                    streets7.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
+                    continue;
+                }
+
+                if (spawnPoint.template.Id.startsWith("Loot 135_Leo_Rare (43)"))
+                {
+                    streets8 = spawnPoint;
+                    streets8.template.Items.push(...this.containers());
+                    streets8.itemDistribution.push(...this.containerDistribution());
+                    this.fixLocationProbabilities(spawnPoint, "tarkovstreets");
                     continue;
                 }
             }

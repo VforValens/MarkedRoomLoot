@@ -422,6 +422,9 @@ export class Loot
     {
         const itemId: IItem[] = [];
         itemId.push({ "_id": "1337774434331278", "_tpl": "5d235bb686f77443f4331278" });
+        itemId.push({ "_id": "1337774334345621", "_tpl": "67600929bd0a0549d70993f6" });
+        itemId.push({ "_id": "1337774234354652", "_tpl": "66bc98a01a47be227a5e956e" });
+        itemId.push({ "_id": "1337774134385416", "_tpl": "567143bf4bdc2d1a0f8b4567" });
         itemId.push({ "_id": "1337774562535613", "_tpl": "5c127c4486f7745625356c13" });
         itemId.push({ "_id": "1337774604423522", "_tpl": "59fb023c86f7746d0d4b423c" });
         itemId.push({ "_id": "1337450112255242", "_tpl": "5b6d9ce188a4501afc1b2b25" });
@@ -447,6 +450,9 @@ export class Loot
         const relativeProbability = this.modConfig.containersInMarkedRoom.relativeProbability;
         const itemDistribution: ItemDistribution[] = [];
         itemDistribution.push({ "composedKey": { "key": "1337774434331278" }, "relativeProbability": relativeProbability.SICCpouch });
+        itemDistribution.push({ "composedKey": { "key": "1337774334345621" }, "relativeProbability": relativeProbability.BallisticPlateCase });
+        itemDistribution.push({ "composedKey": { "key": "1337774234354652" }, "relativeProbability": relativeProbability.StreamerItemCase });
+        itemDistribution.push({ "composedKey": { "key": "1337774134385416" }, "relativeProbability": relativeProbability.PistolCase });
         itemDistribution.push({ "composedKey": { "key": "1337774562535613" }, "relativeProbability": relativeProbability.MagazineCase });
         itemDistribution.push({ "composedKey": { "key": "1337774604423522" }, "relativeProbability": relativeProbability.WeaponCase });
         itemDistribution.push({ "composedKey": { "key": "1337450112255242" }, "relativeProbability": relativeProbability.THICCWeaponCase });

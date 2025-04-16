@@ -3,6 +3,7 @@ import { IItem } from "@spt/models/eft/common/tables/IItem";
 import { ILocationConfig } from "@spt/models/spt/config/ILocationConfig";
 import { DatabaseServer } from "@spt/servers/DatabaseServer";
 import { ILogger } from "@spt/models/spt/utils/ILogger";
+import { BaseClasses } from "@spt/models/enums/BaseClasses";
 
 import { ModConfig } from "../config/ts/config";
 
@@ -22,10 +23,25 @@ export class Loot
 
     public updateLoot(): void
     {
-        
+        this.disableBackpackExcludedFilters();
+        this.logger.info("Backpack Excluded Filters for containers have been disabled.");
         this.containersInMarkedRoom();
         this.logger.info("Marked Room Loot has been updated.");
     }
+
+    private disableBackpackExcludedFilters(): void
+    {
+        const items = this.tables.getTables().templates.items;
+        for (const item of Object.keys(items)) 
+        {
+            if (BaseClasses.BACKPACK)
+            {
+                // Removing excluded filters from backpacks so that containers may fit inside them.
+                items[item]._props.Grids[0]._props.filters[0].ExcludedFilter = []; 
+            }
+        }
+    }
+
 
     /**
      * Changes the loot database/tables to include containers in marked rooms.

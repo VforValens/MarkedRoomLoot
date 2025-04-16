@@ -4,6 +4,9 @@
         "relativeProbability":
         {
             "SICCpouch": 10,
+            "BallisticPlateCase": 10,
+            "StreamerItemCase": 10,
+            "PistolCase": 37,
             "MagazineCase": 33,
             "WeaponCase": 35,
             "THICCWeaponCase": 10,

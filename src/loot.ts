@@ -484,8 +484,6 @@ export class Loot
             const spawnPointType = locationToChange[spawnPointKey];
             const newProbability = relativeProbability[spawnPointType];
             matchedSpawnpoint.relativeProbability = newProbability;
-            console.log(`${matchedSpawnpoint.composedKey.key} found changing relativeProbability to 
-                ${relativeProbability[locationToChange[spawnPointKey]]}`);
         }
     }
     

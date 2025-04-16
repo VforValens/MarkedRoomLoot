@@ -63,7 +63,7 @@ export class Loot
             {
                 customsMarked1 = spawnPoint;
                 customsMarked1.template.Items.push(...this.containers());
-                customsMarked1.itemDistribution.push(...this.itemDistribution());
+                customsMarked1.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -71,7 +71,7 @@ export class Loot
             {
                 customsMarked8 = spawnPoint;
                 customsMarked8.template.Items.push(...this.containers());
-                customsMarked8.itemDistribution.push(...this.itemDistribution());
+                customsMarked8.itemDistribution.push(...this.containerDistribution());
                 this.fixCustomsProbability(spawnPoint);
                 continue;
             }
@@ -80,7 +80,7 @@ export class Loot
             {
                 customsMarked9 = spawnPoint;
                 customsMarked9.template.Items.push(...this.containers());
-                customsMarked9.itemDistribution.push(...this.itemDistribution());
+                customsMarked9.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -88,7 +88,7 @@ export class Loot
             {
                 customsMarked10 = spawnPoint;
                 customsMarked10.template.Items.push(...this.containers());
-                customsMarked10.itemDistribution.push(...this.itemDistribution());
+                customsMarked10.itemDistribution.push(...this.containerDistribution());
                 this.fixCustomsProbability(spawnPoint);
                 continue;
             } 
@@ -97,7 +97,7 @@ export class Loot
             {
                 customsMarked11 = spawnPoint;
                 customsMarked11.template.Items.push(...this.containers());
-                customsMarked11.itemDistribution.push(...this.itemDistribution());
+                customsMarked11.itemDistribution.push(...this.containerDistribution());
                 this.fixCustomsProbability(spawnPoint);
                 continue;
             } 
@@ -106,7 +106,7 @@ export class Loot
             {
                 customsMarked12 = spawnPoint;
                 customsMarked12.template.Items.push(...this.containers());
-                customsMarked12.itemDistribution.push(...this.itemDistribution());
+                customsMarked12.itemDistribution.push(...this.containerDistribution());
                 this.fixCustomsProbability(spawnPoint);
                 continue;
             }
@@ -150,7 +150,7 @@ export class Loot
             {
                 reserveMarked1 = spawnPoint;
                 reserveMarked1.template.Items.push(...this.containers());
-                reserveMarked1.itemDistribution.push(...this.itemDistribution());
+                reserveMarked1.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -158,7 +158,7 @@ export class Loot
             {
                 reserveMarked2 = spawnPoint;
                 reserveMarked2.template.Items.push(...this.containers());
-                reserveMarked2.itemDistribution.push(...this.itemDistribution());
+                reserveMarked2.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -166,7 +166,7 @@ export class Loot
             {
                 reserveMarked3 = spawnPoint;
                 reserveMarked3.template.Items.push(...this.containers());
-                reserveMarked3.itemDistribution.push(...this.itemDistribution());
+                reserveMarked3.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -174,7 +174,7 @@ export class Loot
             {
                 reserveMarked4 = spawnPoint;
                 reserveMarked4.template.Items.push(...this.containers());
-                reserveMarked4.itemDistribution.push(...this.itemDistribution());
+                reserveMarked4.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -182,7 +182,7 @@ export class Loot
             {
                 reserveMarked5 = spawnPoint;
                 reserveMarked5.template.Items.push(...this.containers());
-                reserveMarked5.itemDistribution.push(...this.itemDistribution());
+                reserveMarked5.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -190,7 +190,7 @@ export class Loot
             {
                 reserveMarked6 = spawnPoint;
                 reserveMarked6.template.Items.push(...this.containers());
-                reserveMarked6.itemDistribution.push(...this.itemDistribution());
+                reserveMarked6.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -198,7 +198,7 @@ export class Loot
             {
                 reserveMarked7 = spawnPoint;
                 reserveMarked7.template.Items.push(...this.containers());
-                reserveMarked7.itemDistribution.push(...this.itemDistribution());        
+                reserveMarked7.itemDistribution.push(...this.containerDistribution());        
                 continue;
             }
 
@@ -206,7 +206,7 @@ export class Loot
             {
                 reserveMarked8 = spawnPoint;
                 reserveMarked8.template.Items.push(...this.containers());
-                reserveMarked8.itemDistribution.push(...this.itemDistribution());
+                reserveMarked8.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -214,7 +214,7 @@ export class Loot
             {
                 reserveMarked9 = spawnPoint;
                 reserveMarked9.template.Items.push(...this.containers());
-                reserveMarked9.itemDistribution.push(...this.itemDistribution());
+                reserveMarked9.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -222,7 +222,7 @@ export class Loot
             {
                 reserveMarked10 = spawnPoint;
                 reserveMarked10.template.Items.push(...this.containers());
-                reserveMarked10.itemDistribution.push(...this.itemDistribution());        
+                reserveMarked10.itemDistribution.push(...this.containerDistribution());        
                 continue;
             }
 
@@ -230,7 +230,7 @@ export class Loot
             {
                 reserveMarked11 = spawnPoint;
                 reserveMarked11.template.Items.push(...this.containers());
-                reserveMarked11.itemDistribution.push(...this.itemDistribution());
+                reserveMarked11.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -238,7 +238,7 @@ export class Loot
             {
                 reserveMarked12 = spawnPoint;
                 reserveMarked12.template.Items.push(...this.containers());
-                reserveMarked12.itemDistribution.push(...this.itemDistribution());        
+                reserveMarked12.itemDistribution.push(...this.containerDistribution());        
                 continue;
             }
 
@@ -291,7 +291,7 @@ export class Loot
             {
                 streets = spawnPoint;
                 streets.template.Items.push(...this.containers());
-                streets.itemDistribution.push(...this.itemDistribution());
+                streets.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -299,7 +299,7 @@ export class Loot
             {
                 streets1 = spawnPoint;
                 streets1.template.Items.push(...this.containers());
-                streets1.itemDistribution.push(...this.itemDistribution());
+                streets1.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -307,7 +307,7 @@ export class Loot
             {
                 streets2 = spawnPoint;
                 streets2.template.Items.push(...this.containers());
-                streets2.itemDistribution.push(...this.itemDistribution());
+                streets2.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -315,7 +315,7 @@ export class Loot
             {
                 streets3 = spawnPoint;
                 streets3.template.Items.push(...this.containers());
-                streets3.itemDistribution.push(...this.itemDistribution());
+                streets3.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -323,7 +323,7 @@ export class Loot
             {
                 streets4 = spawnPoint;
                 streets4.template.Items.push(...this.containers());
-                streets4.itemDistribution.push(...this.itemDistribution());
+                streets4.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -331,7 +331,7 @@ export class Loot
             {
                 streets5 = spawnPoint;
                 streets5.template.Items.push(...this.containers());
-                streets5.itemDistribution.push(...this.itemDistribution());
+                streets5.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -339,7 +339,7 @@ export class Loot
             {
                 streets6 = spawnPoint;
                 streets6.template.Items.push(...this.containers());
-                streets6.itemDistribution.push(...this.itemDistribution());
+                streets6.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -347,7 +347,7 @@ export class Loot
             {
                 streets7 = spawnPoint;
                 streets7.template.Items.push(...this.containers());
-                streets7.itemDistribution.push(...this.itemDistribution());
+                streets7.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -355,7 +355,7 @@ export class Loot
             {
                 streets8 = spawnPoint;
                 streets8.template.Items.push(...this.containers());
-                streets8.itemDistribution.push(...this.itemDistribution());
+                streets8.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -363,7 +363,7 @@ export class Loot
             {
                 streets9 = spawnPoint;
                 streets9.template.Items.push(...this.containers());
-                streets9.itemDistribution.push(...this.itemDistribution());
+                streets9.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -371,7 +371,7 @@ export class Loot
             {
                 streets10 = spawnPoint;
                 streets10.template.Items.push(...this.containers());
-                streets10.itemDistribution.push(...this.itemDistribution());
+                streets10.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -379,7 +379,7 @@ export class Loot
             {
                 streets11 = spawnPoint;                
                 streets11.template.Items.push(...this.containers());
-                streets11.itemDistribution.push(...this.itemDistribution());
+                streets11.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -387,7 +387,7 @@ export class Loot
             {
                 streets12 = spawnPoint;
                 streets12.template.Items.push(...this.containers());
-                streets12.itemDistribution.push(...this.itemDistribution());
+                streets12.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -395,7 +395,7 @@ export class Loot
             {
                 streets13 = spawnPoint;
                 streets13.template.Items.push(...this.containers());
-                streets13.itemDistribution.push(...this.itemDistribution());
+                streets13.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
 
@@ -403,7 +403,7 @@ export class Loot
             {
                 streets14 = spawnPoint;
                 streets14.template.Items.push(...this.containers());
-                streets14.itemDistribution.push(...this.itemDistribution());
+                streets14.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
             
@@ -411,7 +411,7 @@ export class Loot
             {
                 streets15 = spawnPoint;
                 streets15.template.Items.push(...this.containers());
-                streets15.itemDistribution.push(...this.itemDistribution());
+                streets15.itemDistribution.push(...this.containerDistribution());
                 continue;
             }
         }      
@@ -445,7 +445,7 @@ export class Loot
     }
 
     
-    private itemDistribution(): ItemDistribution[]
+    private containerDistribution(): ItemDistribution[]
     {
         const relativeProbability = this.modConfig.containersInMarkedRoom.relativeProbability;
         const itemDistribution: ItemDistribution[] = [];

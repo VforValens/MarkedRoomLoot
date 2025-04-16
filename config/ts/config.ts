@@ -12,6 +12,9 @@ export interface Containers
 export interface RelativeProbability
 {
     SICCpouch: number;
+    BallisticPlateCase: number;
+    StreamerItemCase: number;
+    PistolCase: number;
     MagazineCase: number;
     WeaponCase: number;
     THICCWeaponCase: number;

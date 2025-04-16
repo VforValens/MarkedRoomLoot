@@ -444,7 +444,7 @@ export class Loot
     
     private itemDistribution(): ItemDistribution[]
     {
-        const relativeProbability = this.modConfig.containersInMarkedRoom.RelativeProbability;
+        const relativeProbability = this.modConfig.containersInMarkedRoom.relativeProbability;
         const itemDistribution: ItemDistribution[] = [];
         itemDistribution.push({ "composedKey": { "key": "1337774434331278" }, "relativeProbability": relativeProbability.SICCpouch });
         itemDistribution.push({ "composedKey": { "key": "1337774562535613" }, "relativeProbability": relativeProbability.MagazineCase });
@@ -468,7 +468,7 @@ export class Loot
 
     private fixCustomsProbability(spawnPoint: ISpawnpoint): void
     {
-        const relativeProbability = this.modConfig.containersInMarkedRoom.RelativeProbability;
+        const relativeProbability = this.modConfig.containersInMarkedRoom.relativeProbability;
 
         spawnPoint.itemDistribution.find(x => x.composedKey.key === "412439036").relativeProbability = relativeProbability.AmmoCase;
         spawnPoint.itemDistribution.find(x => x.composedKey.key === "124471609").relativeProbability = relativeProbability.DocsCase;

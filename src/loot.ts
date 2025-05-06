@@ -23,10 +23,25 @@ export class Loot
 
     public updateLoot(): void
     {
+        this.disableGlobalsRestrictionsInRaid();
+        this.logger.info("Globals restrictions in raid have been disabled.");
         this.disableBackpackExcludedFilters();
         this.logger.info("Backpack Excluded Filters have been disabled.");
         this.containersInMarkedRoom();
         this.logger.info("Marked Room Loot has been updated.");
+    }
+
+    private disableGlobalsRestrictionsInRaid(): void
+    {
+        const globals = this.tables.getTables().globals.config.RestrictionsInRaid;
+        for (const item in globals)
+        {
+            // Do something lol
+            if (globals[item]?.TemplateId === "67600929bd0a0549d70993f6" || globals[item]?.TemplateId === "66bc98a01a47be227a5e956e")
+            {
+                globals[item].MaxInRaid = 5;
+            }
+        }
     }
 
     private disableBackpackExcludedFilters(): void
@@ -500,7 +515,7 @@ export class Loot
             const matchedSpawnpoint = spawnPoint.itemDistribution.find(x => x.composedKey.key === spawnPointKey);
             if (!matchedSpawnpoint)
             {
-                console.log(`${spawnPointKey} not found`);
+                console.log(`${spawnPointKey} not found. This is not an error, just a warning.`);
                 continue;
             }
 
